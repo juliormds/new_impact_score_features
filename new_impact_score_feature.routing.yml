@@ -1,0 +1,7 @@
+new_impact_score_feature:
+  path: '/new_impact_score_feature'
+  defaults:
+    _controller: 'Drupal\new_impact_score_feature\Controller\AjaxController::insert_data_to_db'
+    _title: "New Impact Score Feature"
+  requirements:
+    _permission: 'access content'

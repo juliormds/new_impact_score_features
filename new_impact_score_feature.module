@@ -1,0 +1,16 @@
+<?php
+
+
+
+/* function table_update_usr_theme() {
+  return [
+    'table_update_usr_KEY' => [
+      'variables' => [
+          'user_id' => null,
+          'self' => null,
+      ],
+    ],
+
+  ];
+}*/
+

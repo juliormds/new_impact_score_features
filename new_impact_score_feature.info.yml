@@ -1,0 +1,4 @@
+name: New Impact Score Feature
+type: module
+description: This module will insert data into dr_impact_score_details table!
+core_version_requirement: ^8 || ^9
