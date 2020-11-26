@@ -21,7 +21,7 @@ class AjaxController extends ControllerBase{
     $uid = \Drupal::currentUser()->id(); /** Get current logged in user ID **/
 
 
-    /** Query for grabbing Number of recent active days and number of days since last login **/
+    /** Query for grabbing Number of recent active days (180 days) and number of days since last login **/
 
     $query = $db->query('SELECT * FROM {users_field_data} WHERE uid = :uid', [':uid' => $uid]);
 
