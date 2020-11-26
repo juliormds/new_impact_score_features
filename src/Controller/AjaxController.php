@@ -35,10 +35,10 @@ class AjaxController extends ControllerBase{
 
     $datediff1 = $current_time - $created_time;
 
-
+	$number_of_days_active = round($datediff1 / (60 * 60 * 24 * 180) );
+	
+	
     /** Number of days since last login data **/
-
-    $number_of_days_active = round($datediff1 / (60 * 60 * 24 * 180) );
 
     $date2 = date('Y-m-d', $result[0]->login); /** Convert login timestamp to year, month, and day format **/
 
