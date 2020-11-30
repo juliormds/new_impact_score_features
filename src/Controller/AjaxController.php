@@ -35,10 +35,10 @@ class AjaxController extends ControllerBase{
 
     $datediff1 = $current_time - $created_time;
 
-	$number_of_days_active = round($datediff1 / (60 * 60 * 24 * 180) );
-	
-	
-    /** Number of days since last login data **/
+    $number_of_days_active = round($datediff1 / (60 * 60 * 24 * 180) );
+
+
+    /** Number of days since last login **/
 
     $date2 = date('Y-m-d', $result[0]->login); /** Convert login timestamp to year, month, and day format **/
 
@@ -54,19 +54,29 @@ class AjaxController extends ControllerBase{
 
       /** Query for grabbing Number of days since last upload **/
 
-      $query2 = $db->query('SELECT * FROM {node_field_data} WHERE uid = :uid', [':uid' => $uid]);
+      $query2 = $db->query('SELECT * FROM {node_field_data} WHERE uid = :uid ORDER BY created DESC', [':uid' => $uid]);
 
       $result2 = $query2->fetchAll();
 
-      $date3 = date('Y-m-d', $result2[0]->created);
+      /** Check if the user is in the database **/
 
-      $start_time = strtotime($date3);
+      if(count($result2) > 0){
 
-      $datediff3 = $current_time - $start_time;
+        $date3 = date('Y-m-d', $result2[0]->created);
 
-      $num_days_last_upload = round($datediff3 / (60 * 60 * 24) );
+        $start_time = strtotime($date3);
 
-    //echo "Number of days since last upload " . $num_days_last_upload. "<br />" ;
+        $datediff3 = $current_time - $start_time;
+
+        $num_days_last_upload = round($datediff3 / (60 * 60 * 24) );
+
+        echo "Number of days since last upload " . $num_days_last_upload. "<br />" ;
+
+      } else {
+
+        $num_days_last_upload = NULL;
+
+      }
 
 
     /** Query for grabbing Number of recent viewing others (180 days) **/
