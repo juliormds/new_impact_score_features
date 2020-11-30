@@ -48,8 +48,8 @@ class AjaxController extends ControllerBase{
 
     $number_of_days_since_last_login = round($datediff2 / (60 * 60 * 24) );
 
-      //echo "Number of active days " . $number_of_days_active . "<br />";
-      //echo "Number of days since last login " . $number_of_days_since_last_login . "<br />";
+      echo "Number of active days " . $number_of_days_active . "<br />";
+      echo "Number of days since last login " . $number_of_days_since_last_login . "<br />";
 
 
       /** Query for grabbing Number of days since last upload **/
@@ -74,7 +74,7 @@ class AjaxController extends ControllerBase{
 
       } else {
 
-        $num_days_last_upload = NULL;
+        $num_days_last_upload = 0;
 
       }
 
@@ -93,7 +93,7 @@ class AjaxController extends ControllerBase{
 
     $num_days_recent_viewing_others = round($datediff4 / (60 * 60 * 24 * 180) );
 
-    //echo "Number of recent viewing others " . $num_days_recent_viewing_others ;
+    echo "Number of recent viewing others " . $num_days_recent_viewing_others ;
 
     /** Update to the impact score details table **/
 
